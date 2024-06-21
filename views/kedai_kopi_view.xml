@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<record id="kedai_kopi_category_kanban_view_id" model="ir.ui.view">
+        <field name="name">kedai_kopi_category_kanban_view_id</field>
+        <field name="model">kedai.kopi.inventory.category</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="unit"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top mb16">
+                                <strong>
+                                    <span>
+                                        <t t-esc="record.name.value"/>
+                                    </span>
+                                </strong>
+                            </div>
+                             <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_right">
+                                   <span>
+                                     <b>Unit: <t t-esc="record.unit.value"/></b>
+                                   </span>
+                                </div>               
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <!-- From View Untuk Tampilan Category dan List Item / Produk -->
+    <record id="kedai_kopi_inventory_category_from_view_id" model="ir.ui.view">
+        <field name="name">kedai_kopi_inventory_category_from_view_id</field>
+        <field name="model">kedai.kopi.inventory.category</field>
+        <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                   <field name="name"/>
+                   <field name="unit" readonly="True"/>
+                </group>
+                <notebook>
+                    <page string="Items">
+                        <field name="kedai_kopi_inventory_category_ids" nolabel="1"  options="{'reload_on_button':True}">
+                            <tree edit="true" editable="bottom" create="true" delete="true">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="unit"/>
+                                <field name="cost"/>
+                                <field name="sale_price"/>
+                                <field name="category"/>
+                                <field name="quantity_incoming"/>
+                                <field name="quantity_outgoing"/>
+                                <field name="total_unit"/>
+                            </tree>
+                        </field>    
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+        </field>
+    </record>
+</odoo>
+
+    
+

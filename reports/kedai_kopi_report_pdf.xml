@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <report 
+    id="menu_report_kedai_kopi_id"
+    model="kedai.kopi.inventory.category"
+    string="Print PDF"
+    report_type="qweb-pdf"
+    name="kedai_kopi.report_data_kedai_kopi_id"
+    file="kedai_kopi.report_data_kedai_kopi_id"
+    />
+
+    <template id="report_data_kedai_kopi_id">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="header" style="padding-top:50px;">
+                    <table style="border:0px;" width="100%">
+                        <tr style="padding-10px;">
+                            <td style="padding-2px;" width="50%"><span t-field="o.name"/></td>
+                            <td style="padding-2px; text-align:right;" ><span t-field="o.unit"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <style>
+                        table, tr, td {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }                 
+                    </style>
+                    <table width="100%">
+                        <tr>
+                            <td width="35%"><span>Produk</span></td>
+                            <td width="10%"><span>Description</span></td>
+                            <td width="10%"><span>Unit</span></td>
+                            <td width="20%"><span>Cost</span></td>
+                            <td width="25%"><span>SalePrice</span></td>                     
+                        </tr>
+                        <t t-foreach="o.kedai_kopi_inventory_category_ids" t-as="line">
+                            <tr>
+                                <!-- <td width="30%"><span t-field="line.product_id.name"/></td> -->
+                                <td width="10%"><span t-field="line.name"/></td>
+                                <td width="10%"><span t-field="line.description"/></td>
+                                <td width="20%"><span t-field="line.unit"/></td>
+                                <td width="25%"><span t-field="line.cost"/></td>
+                                <td width="25%"><span t-field="line.sale_price"/></td>
+                            </tr>
+                        </t>
+                    </table> 
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

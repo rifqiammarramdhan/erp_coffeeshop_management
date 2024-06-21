@@ -1,0 +1,21 @@
+{
+    'name':'Manajemen Kedai Kopi',
+    'version': '1.0',
+    'category': 'Point of Sale',
+    'summary' : 'POS untuk manajemen kedai kopi',
+    'description' : """Sistem POS untuk manajemen kedai kopi""",
+    'website' : '',
+    'author' : 'Rifqi Ammar Ramadhan',
+    'depends' : ['base','web'],
+    'data' : [
+        'security/ir.model.access.csv',
+        'views/kedai_kopi_view.xml',
+        'views/kedai_kopi_action.xml',
+        'views/kedai_kopi_menu.xml',
+        'views/kedai_kopi_menu.xml',
+        'reports/kedai_kopi_report_pdf.xml',
+    ],
+    'installable' : True,
+    'auto_install': False,
+    'license' : 'OEEL-1',
+}

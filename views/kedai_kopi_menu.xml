@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="parent_kedai_kopi_inventory_id"
+        name="KedaiKopi"
+        sequence="300"
+    />
+    <menuitem
+        id="child_kedai_kopi_inventory_id"
+        name="Inventory"
+        parent="kedai_kopi.parent_kedai_kopi_inventory_id"
+        action="kedai_kopi.inventory_actions_category_id"
+    />
+</odoo>

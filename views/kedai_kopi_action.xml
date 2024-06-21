@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inventory_actions_category_id" model="ir.actions.act_window">
+        <field name="name">Category</field>
+        <field name="res_model">kedai.kopi.inventory.category</field>
+    </record>
+    <record id="inventory_actions_category_kanban_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="kedai_kopi.kedai_kopi_category_kanban_view_id"/>
+        <field name="act_window_id" ref="kedai_kopi.inventory_actions_category_id"/>
+    </record>
+        <record id="inventory_actions_category_form_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="kedai_kopi.kedai_kopi_inventory_category_from_view_id"/>
+        <field name="act_window_id" ref="kedai_kopi.inventory_actions_category_id"/>
+    </record>
+</odoo>
+
