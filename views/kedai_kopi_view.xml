@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-<record id="kedai_kopi_category_kanban_view_id" model="ir.ui.view">
+    <record id="kedai_kopi_category_kanban_view_id" model="ir.ui.view">
         <field name="name">kedai_kopi_category_kanban_view_id</field>
         <field name="model">kedai.kopi.inventory.category</field>
         <field name="arch" type="xml">
@@ -60,6 +60,59 @@
                 </notebook>
             </sheet>
         </form>
+        </field>
+    </record>
+<!--  List view untuk Sales menu-->
+    <record id="kedai_kopi_sales_tree_view_id" model="ir.ui.view">
+        <field name="name">kedai_kopi_sales_tree_view_id</field>
+        <field name="model">kedai.kopi.sales</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="customer"/>
+                <field name="date"/>
+                <field name="status" widget="badge" decoration-success=" status == 'paid' " decoration-info=" status == 'open' "/>
+            </tree>
+        </field>
+    </record>
+    <record id="kedai_kopi_sales_form_view_id" model="ir.ui.view">
+        <field name="name">kedai_kopi_sales_form_view_id</field>
+        <field name="model">kedai.kopi.sales</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="func_set_to_open" string="Set Open" invisible="status != 'draft'" class="oe_highlight"/>
+                    <button type="object" name="func_set_to_paid" string="Paid" invisible="status != 'open'" class="oe_highlight"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="true"/>
+                            <field name="customer"/>
+                        </group>
+                        <group>
+                            <field name="status" invisible="true"/>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sales Invoice"> <!-- Tambahkan atribut string untuk menambahkan label pada notebook -->
+                            <field name="kedai_kopi_sales_invoice_ids" nolabel="1" options="{'reload_on_button':True}">
+                                <tree edit="true" aditable="bottom" create="true" delete="true">
+                                    <field name="product_id" require="true"/>
+                                    <field name="quantity"/>
+                                    <field name="unitPrice" widget="monetary"/>
+                                    <field name="amount"/>
+                                    <field name="total"/>
+<!--                                    <field name="taxes"/>-->
+<!--                                    <field name="tax_amount"/>-->
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
         </field>
     </record>
 </odoo>

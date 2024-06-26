@@ -11,4 +11,10 @@
         parent="kedai_kopi.parent_kedai_kopi_inventory_id"
         action="kedai_kopi.inventory_actions_category_id"
     />
+     <menuitem
+        id="child_kedai_kopi_sales_id"
+        name="Sales"
+        parent="kedai_kopi.parent_kedai_kopi_inventory_id"
+        action="kedai_kopi.sales_actions_id"
+    />
 </odoo>

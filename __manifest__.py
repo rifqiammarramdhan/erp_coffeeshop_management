@@ -9,6 +9,7 @@
     'depends' : ['base','web'],
     'data' : [
         'security/ir.model.access.csv',
+        'views/sales_sequence.xml',
         'views/kedai_kopi_view.xml',
         'views/kedai_kopi_action.xml',
         'views/kedai_kopi_menu.xml',

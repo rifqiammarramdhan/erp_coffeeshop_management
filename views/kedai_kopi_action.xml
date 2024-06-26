@@ -16,5 +16,22 @@
         <field name="view_id" ref="kedai_kopi.kedai_kopi_inventory_category_from_view_id"/>
         <field name="act_window_id" ref="kedai_kopi.inventory_actions_category_id"/>
     </record>
+<!--&lt;!&ndash;  Sales Menu  &ndash;&gt;-->
+    <record id="sales_actions_id" model="ir.actions.act_window">
+        <field name="name">Sales</field>
+        <field name="res_model">kedai.kopi.sales</field>
+    </record>
+    <record id="sales_actions_tree_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="kedai_kopi.kedai_kopi_sales_tree_view_id"/>
+        <field name="act_window_id" ref="kedai_kopi.sales_actions_id"/>
+    </record>
+    <record id="sales_actions_form_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="kedai_kopi.kedai_kopi_sales_form_view_id"/>
+        <field name="act_window_id" ref="kedai_kopi.sales_actions_id"/>
+    </record>
 </odoo>
 
